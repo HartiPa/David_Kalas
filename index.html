@@ -374,6 +374,7 @@
       background: linear-gradient(to top, rgba(10,9,6,0.7) 0%, transparent 60%);
       opacity: 0; transition: opacity 0.4s;
       display: flex; align-items: flex-end; padding: 1.5rem;
+      pointer-events: none;
     }
     .portfolio-item:hover .portfolio-item-overlay { opacity: 1; }
     .portfolio-item-tag {
@@ -637,6 +638,50 @@
       .stats-bar { flex-wrap: wrap; }
       .stat-item { border-right: none; border-bottom: 1px solid rgba(201,169,110,0.12); width: 50%; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.95);
+      align-items: center; justify-content: center;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-img {
+      max-width: 90vw; max-height: 88vh;
+      object-fit: contain;
+      border: 1px solid rgba(201,169,110,0.2);
+      user-select: none; drag: none;
+    }
+    .lightbox-close {
+      position: absolute; top: 1.2rem; right: 1.5rem;
+      color: rgba(255,255,255,0.6); font-size: 2rem; line-height: 1;
+      cursor: pointer; background: none; border: none;
+      transition: color 0.3s; z-index: 201;
+    }
+    .lightbox-close:hover { color: var(--gold); }
+    .lightbox-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.4); border: 1px solid rgba(201,169,110,0.25);
+      color: rgba(255,255,255,0.7); font-size: 1.5rem;
+      width: 48px; height: 48px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.3s, color 0.3s; z-index: 201;
+      user-select: none;
+    }
+    .lightbox-arrow:hover { background: rgba(201,169,110,0.2); color: var(--gold); }
+    .lightbox-prev { left: 1rem; }
+    .lightbox-next { right: 1rem; }
+    .lightbox-counter {
+      position: absolute; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
+      font-size: 0.75rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.4);
+    }
+    @media (max-width: 900px) {
+      .lightbox-arrow { width: 38px; height: 38px; font-size: 1.1rem; }
+      .lightbox-prev { left: 0.4rem; }
+      .lightbox-next { right: 0.4rem; }
     }
 
     /* Fallback: show reveal elements if JS fails */
@@ -1199,6 +1244,16 @@
   </div>
 </section>
 
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">✕</button>
+  <button class="lightbox-arrow lightbox-prev" id="lightboxPrev">&#8249;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+  <button class="lightbox-arrow lightbox-next" id="lightboxNext">&#8250;</button>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo"><img src="logo.webp" alt="David Kalaš logo" class="footer-logo-img" /><span>David</span> Kalaš <em class="nav-logo-sub">fotograf</em></div>
@@ -1206,6 +1261,104 @@
 </footer>
 
 <script>
+
+  // ── LIGHTBOX ──
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCounter = document.getElementById('lightboxCounter');
+  let currentImages = [];
+  let currentIndex = 0;
+
+  function openLightbox(imgs, index) {
+    currentImages = imgs;
+    currentIndex = index;
+    showImage(currentIndex);
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function showImage(index) {
+    lightboxImg.src = currentImages[index].src;
+    lightboxImg.alt = currentImages[index].alt || '';
+    lightboxCounter.textContent = (index + 1) + ' / ' + currentImages.length;
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    showImage(currentIndex);
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    showImage(currentIndex);
+  }
+
+  // Attach lightbox to portfolio-item divs
+  function attachLightbox() {
+    document.querySelectorAll('.portfolio-item').forEach((item) => {
+      const img = item.querySelector('img');
+      if (!img) return;
+      item.style.cursor = 'zoom-in';
+      item.onclick = function(e) {
+        e.stopPropagation();
+        const panel = item.closest('.portfolio-panel');
+        const imgs = Array.from(panel.querySelectorAll('.portfolio-item img'));
+        const idx = imgs.indexOf(img);
+        openLightbox(imgs, idx);
+      };
+    });
+  }
+
+  // Attach on load
+  window.addEventListener('load', attachLightbox);
+  // Also attach immediately
+  attachLightbox();
+
+  // Re-attach when tab changes
+  document.querySelectorAll('.portfolio-tab').forEach(tab => {
+    tab.addEventListener('click', () => setTimeout(attachLightbox, 100));
+  });
+
+  // Controls
+  document.getElementById('lightboxClose').onclick = closeLightbox;
+  document.getElementById('lightboxPrev').onclick = prevImage;
+  document.getElementById('lightboxNext').onclick = nextImage;
+
+  // Click outside image closes lightbox
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox || e.target === lightboxCounter) closeLightbox();
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'ArrowLeft') prevImage();
+    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Touch swipe
+  let touchStartX = 0;
+  let touchStartY = 0;
+  lightbox.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+  lightbox.addEventListener('touchend', (e) => {
+    const diffX = touchStartX - e.changedTouches[0].clientX;
+    const diffY = touchStartY - e.changedTouches[0].clientY;
+    // Only swipe if horizontal movement is dominant
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+      if (diffX > 0) nextImage();
+      else prevImage();
+    }
+  }, { passive: true });
+
   // Safe Lucide init
   function initIcons() {
     try { if (window.lucide) lucide.createIcons(); } catch(e) {}
