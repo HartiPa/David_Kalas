@@ -37,6 +37,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
+
+    /* ── LOAD MORE ── */
+    .load-more-wrap {
+      text-align: center; margin-top: 2.5rem; margin-bottom: 1rem;
+      max-width: 1300px; margin-left: auto; margin-right: auto;
+    }
+    .btn-load-more {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      border: 1px solid rgba(201,169,110,0.4);
+      color: var(--gold); font-size: 0.75rem; font-weight: 400;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      cursor: pointer; background: transparent;
+      transition: background 0.3s, border-color 0.3s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-load-more:hover {
+      background: rgba(201,169,110,0.1); border-color: var(--gold);
+    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -390,12 +409,11 @@
       overflow: hidden; position: relative; cursor: pointer;
     }
     /* default masonry spans */
-    .portfolio-grid:not(.grid-4) .portfolio-item:nth-child(1) { grid-column: 1 / 6; grid-row: 1; }
-    .portfolio-grid:not(.grid-4) .portfolio-item:nth-child(2) { grid-column: 6 / 9; grid-row: 1; }
-    .portfolio-grid:not(.grid-4) .portfolio-item:nth-child(3) { grid-column: 9 / 13; grid-row: 1; }
-    .portfolio-grid:not(.grid-4) .portfolio-item:nth-child(4) { grid-column: 1 / 5; grid-row: 2; }
-    .portfolio-grid:not(.grid-4) .portfolio-item:nth-child(5) { grid-column: 5 / 9; grid-row: 2; }
-    .portfolio-grid:not(.grid-4) .portfolio-item:nth-child(6) { grid-column: 9 / 13; grid-row: 2; }
+    
+    
+    
+    
+    
     .portfolio-item img {
       width: 100%; height: 100%; object-fit: cover;
       transition: transform 0.7s ease, filter 0.5s;
@@ -874,101 +892,193 @@
   <!-- Panel: Fotografie -->
   <div class="portfolio-panel active" id="tab-foto">
     <div class="portfolio-grid portfolio-grid-auto">
-      <div class="portfolio-item" style="transition-delay:0.0s">
-        <img src="portfolio/DSC00675-HDR.webp" alt="Realitní fotografie" loading="lazy" />
-        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
-      </div>
-      <div class="portfolio-item" style="transition-delay:0.1s">
-        <img src="portfolio/DSC00685-HDR.webp" alt="Realitní fotografie" loading="lazy" />
-        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
-      </div>
-      <div class="portfolio-item" style="transition-delay:0.2s">
-        <img src="portfolio/DSC00998-HDR.webp" alt="Realitní fotografie" loading="lazy" />
-        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
-      </div>
-      <div class="portfolio-item" style="transition-delay:0.3s">
-        <img src="portfolio/DSC01174-HDR.webp" alt="Realitní fotografie" loading="lazy" />
-        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
-      </div>
-      <div class="portfolio-item" style="transition-delay:0.4s">
-        <img src="portfolio/DSC01204-HDR.webp" alt="Realitní fotografie" loading="lazy" />
-        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
-      </div>
-      <div class="portfolio-item" style="transition-delay:0.5s">
-        <img src="portfolio/DSC01214-HDR.webp" alt="Realitní fotografie" loading="lazy" />
+      <div class="portfolio-item">
+        <img src="portfolio/FOTO001.webp" alt="Fotografie" loading="lazy" />
         <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
       </div>
       <div class="portfolio-item">
-        <img src="portfolio/DSC01304-HDR.webp" alt="Realitní fotografie" loading="lazy" />
+        <img src="portfolio/FOTO002.webp" alt="Fotografie" loading="lazy" />
         <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
       </div>
       <div class="portfolio-item">
-        <img src="portfolio/DSC01354-HDR.webp" alt="Realitní fotografie" loading="lazy" />
+        <img src="portfolio/FOTO003.webp" alt="Fotografie" loading="lazy" />
         <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
       </div>
       <div class="portfolio-item">
-        <img src="portfolio/DSC01442-HDR.webp" alt="Realitní fotografie" loading="lazy" />
+        <img src="portfolio/FOTO004.webp" alt="Fotografie" loading="lazy" />
         <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
       </div>
       <div class="portfolio-item">
-        <img src="portfolio/DSC01467-HDR.webp" alt="Realitní fotografie" loading="lazy" />
+        <img src="portfolio/FOTO005.webp" alt="Fotografie" loading="lazy" />
         <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
       </div>
       <div class="portfolio-item">
-        <img src="portfolio/DSC02724-HDR.webp" alt="Realitní fotografie" loading="lazy" />
+        <img src="portfolio/FOTO006.webp" alt="Fotografie" loading="lazy" />
         <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
       </div>
       <div class="portfolio-item">
-        <img src="portfolio/DSC02734-HDR.webp" alt="Realitní fotografie" loading="lazy" />
+        <img src="portfolio/FOTO007.webp" alt="Fotografie" loading="lazy" />
         <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
       </div>
       <div class="portfolio-item">
-        <img src="portfolio/DSC02794-HDR.webp" alt="Realitní fotografie" loading="lazy" />
+        <img src="portfolio/FOTO008.webp" alt="Fotografie" loading="lazy" />
         <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
       </div>
       <div class="portfolio-item">
-        <img src="portfolio/DSC02939-HDR.webp" alt="Realitní fotografie" loading="lazy" />
+        <img src="portfolio/FOTO009.webp" alt="Fotografie" loading="lazy" />
         <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
       </div>
-      <div class="portfolio-item">
-        <img src="portfolio/DSC02954-HDR.webp" alt="Realitní fotografie" loading="lazy" />
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO010.webp" alt="Fotografie" loading="lazy" />
         <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
       </div>
-      <div class="portfolio-item">
-        <img src="portfolio/DSC03919-HDR.webp" alt="Realitní fotografie" loading="lazy" />
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO011.webp" alt="Fotografie" loading="lazy" />
         <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
       </div>
-      <div class="portfolio-item">
-        <img src="portfolio/DSC03924-HDR.webp" alt="Realitní fotografie" loading="lazy" />
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO012.webp" alt="Fotografie" loading="lazy" />
         <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
       </div>
-      <div class="portfolio-item">
-        <img src="portfolio/DSC06076-HDR.webp" alt="Realitní fotografie" loading="lazy" />
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO013.webp" alt="Fotografie" loading="lazy" />
         <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
       </div>
-      <div class="portfolio-item">
-        <img src="portfolio/DSC06102-HDR.webp" alt="Realitní fotografie" loading="lazy" />
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO014.webp" alt="Fotografie" loading="lazy" />
         <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
       </div>
-      <div class="portfolio-item">
-        <img src="portfolio/DSC06107-HDR.webp" alt="Realitní fotografie" loading="lazy" />
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO015.webp" alt="Fotografie" loading="lazy" />
         <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
       </div>
-      <div class="portfolio-item">
-        <img src="portfolio/DSC06167-HDR.webp" alt="Realitní fotografie" loading="lazy" />
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO016.webp" alt="Fotografie" loading="lazy" />
         <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
       </div>
-      <div class="portfolio-item">
-        <img src="portfolio/DSC06217-HDR.webp" alt="Realitní fotografie" loading="lazy" />
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO017.webp" alt="Fotografie" loading="lazy" />
         <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
       </div>
-      <div class="portfolio-item">
-        <img src="portfolio/DSC06287-HDR.webp" alt="Realitní fotografie" loading="lazy" />
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO018.webp" alt="Fotografie" loading="lazy" />
         <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
       </div>
-<div class="portfolio-item" style="transition-delay:0.0s">
-        <img src="portfolio/DJI_20250807143901_0138_D.webp" alt="Drone záběr" loading="lazy" />
-        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Drone</span>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO019.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO020.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO021.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO022.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO023.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO024.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO025.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO026.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO027.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO028.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO029.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO030.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO031.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO032.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO033.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO034.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO035.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO036.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO037.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/FOTO038.webp" alt="Fotografie" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Fotografie</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/DRON001.webp" alt="Drone" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Drone</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/DRON002.webp" alt="Drone" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Drone</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/DRON003.webp" alt="Drone" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Drone</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/DRON004.webp" alt="Drone" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Drone</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/DRON005.webp" alt="Drone" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Drone</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/DRON006.webp" alt="Drone" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Drone</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/DRON007.webp" alt="Drone" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Drone</span></div>
+      </div>
+      <div class="portfolio-item" style="display:none" data-hidden="true">
+        <img src="portfolio/DRON008.webp" alt="Drone" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Drone</span></div>
+      </div>
+    </div>
+    <div class="load-more-wrap" id="loadMoreFotoWrap">
+      <button class="btn-load-more" id="loadMoreFoto">Načíst další fotografie</button>
     </div>
   </div>
 
@@ -985,30 +1095,46 @@
 
     <!-- Panel: Vizualizace & Staging -->
   <div class="portfolio-panel" id="tab-drone">
-    <div class="portfolio-grid grid-4">
-    </div>
-    <div style="text-align:center; max-width:500px; margin:4rem auto; padding:3rem 2rem; border:1px solid rgba(201,169,110,0.2);">
-      <i data-lucide="sparkles" style="width:48px;height:48px;stroke:var(--gold);stroke-width:1; margin-bottom:1.5rem;"></i>
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; color:var(--white); margin-bottom:1rem;">Již brzy</h3>
-      <p style="color:rgba(255,255,255,0.45); font-size:0.9rem; line-height:1.8;">Pracujeme na přípravě ukázek virtuálního stagingu a vizualizací. Brzy zde uvidíte jak lze pomocí moderních technologií proměnit prázdný prostor v atraktivní nemovitost.</p>
-    </div>
-  </div>
-
-      <div class="portfolio-item" style="transition-delay:0.1s">
-        <img src="portfolio/DJI_20250809115925_0172_D.webp" alt="Drone záběr" loading="lazy" />
-        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Drone</span></div>
+    <div class="portfolio-grid portfolio-grid-auto">
+      <div class="portfolio-item">
+        <img src="portfolio/VS001.webp" alt="Vizualizace & Staging" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Vizualizace & Staging</span></div>
       </div>
-      <div class="portfolio-item" style="transition-delay:0.2s">
-        <img src="portfolio/DJI_20250809120108_0178_D.webp" alt="Drone záběr" loading="lazy" />
-        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Drone</span></div>
+      <div class="portfolio-item">
+        <img src="portfolio/VS002.webp" alt="Vizualizace & Staging" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Vizualizace & Staging</span></div>
       </div>
-      <div class="portfolio-item" style="transition-delay:0.3s">
-        <img src="portfolio/DJI_20250905162757_0243_D.webp" alt="Drone záběr" loading="lazy" />
-        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Drone</span></div>
+      <div class="portfolio-item">
+        <img src="portfolio/VS003.webp" alt="Vizualizace & Staging" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Vizualizace & Staging</span></div>
       </div>
-      <div class="portfolio-item" style="transition-delay:0.4s">
-        <img src="portfolio/DJI_20250905163106_0250_D.webp" alt="Drone záběr" loading="lazy" />
-        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Drone</span></div>
+      <div class="portfolio-item">
+        <img src="portfolio/VS004.webp" alt="Vizualizace & Staging" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Vizualizace & Staging</span></div>
+      </div>
+      <div class="portfolio-item">
+        <img src="portfolio/VS005.webp" alt="Vizualizace & Staging" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Vizualizace & Staging</span></div>
+      </div>
+      <div class="portfolio-item">
+        <img src="portfolio/VS006.webp" alt="Vizualizace & Staging" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Vizualizace & Staging</span></div>
+      </div>
+      <div class="portfolio-item">
+        <img src="portfolio/VS007.webp" alt="Vizualizace & Staging" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Vizualizace & Staging</span></div>
+      </div>
+      <div class="portfolio-item">
+        <img src="portfolio/VS008.webp" alt="Vizualizace & Staging" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Vizualizace & Staging</span></div>
+      </div>
+      <div class="portfolio-item">
+        <img src="portfolio/VS009.webp" alt="Vizualizace & Staging" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Vizualizace & Staging</span></div>
+      </div>
+      <div class="portfolio-item">
+        <img src="portfolio/VS010.webp" alt="Vizualizace & Staging" loading="lazy" />
+        <div class="portfolio-item-overlay"><span class="portfolio-item-tag">Vizualizace & Staging</span></div>
       </div>
     </div>
   </div>
@@ -1525,6 +1651,25 @@
   navMobile.addEventListener('click', (e) => {
     if (e.target === navMobile) closeMenu();
   });
+  // ── LOAD MORE FOTOGRAFIE ──
+  (function() {
+    var btn = document.getElementById('loadMoreFoto');
+    var wrap = document.getElementById('loadMoreFotoWrap');
+    if (!btn || !wrap) return;
+    var panel = document.getElementById('tab-foto');
+    btn.addEventListener('click', function() {
+      var hidden = panel.querySelectorAll('[data-hidden="true"]');
+      var count = 0;
+      for (var i = 0; i < hidden.length && count < 9; i++) {
+        hidden[i].style.display = '';
+        hidden[i].removeAttribute('data-hidden');
+        count++;
+      }
+      if (panel.querySelectorAll('[data-hidden="true"]').length === 0) {
+        wrap.style.display = 'none';
+      }
+    });
+  })();
 </script>
 </body>
 </html>
