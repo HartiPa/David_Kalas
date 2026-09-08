@@ -56,6 +56,66 @@
     .btn-load-more:hover {
       background: rgba(201,169,110,0.1); border-color: var(--gold);
     }
+
+    /* ── VIDEO PANEL ── */
+    .video-grid {
+      max-width: 1300px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+    .video-item {
+      position: relative; cursor: pointer;
+      overflow: hidden; background: #000;
+    }
+    .video-thumbnail {
+      width: 100%; aspect-ratio: 16/9;
+      object-fit: cover;
+      transition: transform 0.5s, opacity 0.3s;
+      opacity: 0.85;
+    }
+    .video-item:hover .video-thumbnail { transform: scale(1.04); opacity: 1; }
+    .video-play-btn {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .video-play-circle {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(0,0,0,0.55);
+      border: 2px solid rgba(201,169,110,0.7);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.3s, border-color 0.3s, transform 0.3s;
+    }
+    .video-item:hover .video-play-circle {
+      background: rgba(201,169,110,0.25);
+      border-color: var(--gold);
+      transform: scale(1.1);
+    }
+    .video-play-circle svg { margin-left: 4px; }
+
+    /* Video lightbox */
+    .video-lightbox {
+      display: none; position: fixed; inset: 0; z-index: 300;
+      background: rgba(0,0,0,0.97);
+      align-items: center; justify-content: center;
+    }
+    .video-lightbox.open { display: flex; }
+    .video-lightbox-inner {
+      position: relative; width: 90vw; max-width: 1100px;
+    }
+    .video-lightbox-inner iframe {
+      width: 100%; aspect-ratio: 16/9; border: none;
+    }
+    .video-lightbox-close {
+      position: absolute; top: -2.5rem; right: 0;
+      color: rgba(255,255,255,0.6); font-size: 2rem;
+      background: none; border: none; cursor: pointer;
+      transition: color 0.3s;
+    }
+    .video-lightbox-close:hover { color: var(--gold); }
+    @media (max-width: 900px) {
+      .video-grid { grid-template-columns: 1fr; }
+    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -1084,12 +1144,26 @@
 
   <!-- Panel: Video -->
   <div class="portfolio-panel" id="tab-video">
-    <div class="portfolio-grid grid-4">
+    <div class="video-grid">
+
+      <!-- Video 1 -->
+      <div class="video-item" data-video-id="rwp-xNo7pi4">
+        <img class="video-thumbnail" src="https://img.youtube.com/vi/rwp-xNo7pi4/maxresdefault.jpg" alt="Video prohlídka nemovitosti" loading="lazy" />
+        <div class="video-play-btn">
+          <div class="video-play-circle">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--gold)"><polygon points="6,4 20,12 6,20"/></svg>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <div style="text-align:center; max-width:500px; margin:4rem auto; padding:3rem 2rem; border:1px solid rgba(201,169,110,0.2);">
-      <i data-lucide="clapperboard" style="width:48px;height:48px;stroke:var(--gold);stroke-width:1; margin-bottom:1.5rem;"></i>
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; color:var(--white); margin-bottom:1rem;">Již brzy</h3>
-      <p style="color:rgba(255,255,255,0.45); font-size:0.9rem; line-height:1.8;">Pracujeme na přípravě ukázkových video prohlídek nemovitostí. Brzy zde najdete profesionální videa která vám pomohou lépe prezentovat vaše nemovitosti.</p>
+  </div>
+
+  <!-- Video Lightbox -->
+  <div class="video-lightbox" id="videoLightbox">
+    <div class="video-lightbox-inner">
+      <button class="video-lightbox-close" id="videoLightboxClose">✕</button>
+      <iframe id="videoLightboxFrame" src="" title="Video prohlídka nemovitosti" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
   </div>
 
@@ -1670,6 +1744,34 @@
       }
     });
   })();
+
+  // ── VIDEO LIGHTBOX ──
+  const videoLightbox = document.getElementById('videoLightbox');
+  const videoFrame = document.getElementById('videoLightboxFrame');
+
+  document.querySelectorAll('.video-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const id = item.dataset.videoId;
+      videoFrame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&origin=' + encodeURIComponent(window.location.origin);
+      videoLightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeVideoLightbox() {
+    videoLightbox.classList.remove('open');
+    videoFrame.src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('videoLightboxClose').addEventListener('click', closeVideoLightbox);
+  videoLightbox.addEventListener('click', (e) => {
+    if (e.target === videoLightbox) closeVideoLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && videoLightbox.classList.contains('open')) closeVideoLightbox();
+  });
+
 </script>
 </body>
 </html>
